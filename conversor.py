@@ -19,9 +19,9 @@ def converter_moeda():
 
 
         # Avalia a moeda escolhida e converte para a outra.
-        if moedaInicial == "Dólar":
+        if moedaInicial == "dólar".lower() or moedaInicial == "dolar".lower():
             resultado = f"${valorConverter} equivale a R${realConversao:.2f}"
-        elif moedaInicial == "Real":
+        elif moedaInicial == "real".lower():
             resultado = f"R${valorConverter} equivale a ${dolarConversao:.2f}"
         else:
             resultado = f"'{moedaInicial}' não foi reconhecido. Por favor, escolha entre 'DÓLAR' e 'REAL'."
@@ -39,7 +39,7 @@ dpg.create_viewport(title='Conversor de moedas', width=1000, height=300)
 # Define a janela principal onde os elementos da interface serão colocados
 with dpg.window(label="Conversor", width=1000, height=300):
     # Adiciona um campo de texto para o usuário inserir a moeda a ser convertida.
-    dpg.add_combo(label="Moeda a ser convertida:", items=["Real", "Dólar"], default_value="Real", tag="moedaInicial")    # Adiciona um campo de texto para o usuário inserir o valor a ser convertido.
+    dpg.add_input_text(label="Moeda a ser convertida (real ou dólar):", tag="moedaInicial")
     dpg.add_input_text(label="Valor a ser convertido:", tag="valorConverter")
     # Adiciona um botão que, quando clicado, chama a função 'converter_moeda'
     dpg.add_button(label="Converter moeda", callback=converter_moeda)
