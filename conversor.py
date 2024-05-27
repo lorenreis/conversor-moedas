@@ -10,21 +10,21 @@ def converter_moeda():
 
     try:
         # Converte os valores obtidos para os tipos de variáveis adequados
-        real = float(0.1933)
-        dolar = float(5.1729)
-        moedaInicial = (moedaInicial)
-        valorConverter = float(valorConverter)
-        realConversao = float(valorConverter * dolar)
-        dolarConversao = float(valorConverter * real)
+        real = float(0.1933) # Valor do real para o dólar
+        dolar = float(5.1729) # Valor do dólar para o real
+        moedaInicial = (moedaInicial) # Moeda a ser convertida escolhida pelo usuário
+        valorConverter = float(valorConverter) # Valor que o usuário deseja converter
+        realConversao = float(valorConverter * dolar) # Converte o DÓLAR para o REAL
+        dolarConversao = float(valorConverter * real) # Converte o REAL para o DÓLAR
 
 
         # Avalia a moeda escolhida e converte para a outra.
-        if moedaInicial == "dólar".lower() or moedaInicial == "dolar".lower():
+        if moedaInicial == "dólar".lower() or moedaInicial == "dolar".lower(): # Converte o DÓLAR para o REAL
             resultado = f"${valorConverter} equivale a R${realConversao:.2f}"
-        elif moedaInicial == "real".lower():
+        elif moedaInicial == "real".lower(): # Converte o REAL para o DÓLAR
             resultado = f"R${valorConverter} equivale a ${dolarConversao:.2f}"
         else:
-            resultado = f"'{moedaInicial}' não foi reconhecido. Por favor, escolha entre 'DÓLAR' e 'REAL'."
+            resultado = f"'{moedaInicial}' não foi reconhecido. Por favor, escolha entre 'DÓLAR' e 'REAL'." # Mensagem de erro em caso de moeda digitada errada
 
         # Configura o valor do texto de resultado na interface com o final e interpretação ou mensagem de erro
         dpg.set_value("resultado", resultado)
