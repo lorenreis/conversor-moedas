@@ -1,10 +1,10 @@
 """Faça um sistema de conversão de real para dolar e vice-versa."""
 import dearpygui.dearpygui as dpg
 import sys
-dpg.create_context()
 
-def fechar_sistema(): #sistema Dcionado para utilizar o button.----
-    sys.exit() #sistema Dcionado para utilizar o button.----
+dpg.create_context()
+def fecharprograma():
+    dpg.stop_dearpygui() 
 
 def converter_moeda():
     # Obtém os valores inseridos nos campos de "input" da interface
@@ -56,7 +56,7 @@ with dpg.window(label="Conversor", width=1000, height=300):
     dpg.add_input_text(label="Valor a ser convertido:", tag="valorConverter")
     # Adiciona um botão que, quando clicado, chama a função 'converter_moeda'
     dpg.add_button(label="Converter moeda", callback=converter_moeda)
-    dpg.add_button(label="sair", callback=fechar_sistema) #Button adcionado.-----
+    dpg.add_button(label="sair", callback=fecharprograma) #Button adcionado.-----
 
     # Adiciona um espaço para exibir o resultado ou mensagens de erro
     dpg.add_text("", tag="resultado")
@@ -68,4 +68,5 @@ dpg.show_viewport()
 dpg.start_dearpygui()
 # Destroi o contexto da aplicação após o fechamento da janela, liberando recursos
 dpg.destroy_context()
+dpg.stop_dearpygui() 
 
